@@ -22,10 +22,10 @@
 package io.fester.util.test
 
 import org.scalactic.TimesOnInt
-import org.scalatest.{ PrivateMethodTester, _ }
+import org.scalatest.{PrivateMethodTester, _}
 
 abstract class UnitSpec
-    extends FlatSpec
+  extends FlatSpec
     with Matchers
     with OptionValues
     with Inside

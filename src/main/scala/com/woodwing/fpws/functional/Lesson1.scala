@@ -24,16 +24,41 @@ package com.woodwing.fpws.functional
 object Lesson1 {
 
   case class Email(
-    subject: String,
-    body: String,
-    sender: String,
-    recipient: String
+      subject: String,
+      body: String,
+      sender: String,
+      recipient: String
   )
+
+  val emails = Set.empty[Email]
 
   // Given a collection of Email objects, write functions that filter .. :
   // (input: Seq[Email]) -> filter -> (output: Seq[Email])
 
   // sentByOneOf(senders: Seq[String])
+
+  def filterEmails(emails: Set[Email])(f: EmailFilter): Set[Email] =
+    emails filter f
+
+  type EmailFilter = Email ⇒ Boolean
+
+  val senders = ("jtb@woodwing.com" :: Nil).toSet
+  filterEmails(emails) { email ⇒ senders.contains(email.sender) }
+  filterEmails(emails)(email ⇒ senders.contains(email.sender))
+
+  val sentByOneOf: (Set[String]) ⇒ EmailFilter =
+    (s) ⇒ e ⇒ s.contains(e.sender)
+
+  // filters emails _not_ sent by any of senders in given set
+  val notSentByAnyOf: (Set[String]) ⇒ EmailFilter = ???
+
+  // filter emails with a minimum body size
+  val minimumBodySize = ???
+
+  // filter emails with a maximum body size
+  val maximumBodySize = ???
+
+  filterEmails(emails)(sentByOneOf(senders))
 
   // notSentByAnyOf: Seq[String]
 

@@ -21,18 +21,28 @@
 
 package com.woodwing.fpws.collections
 
-import com.woodwing.fpws.collections.Emails.Email
+import com.woodwing.fpws.functional.Lesson1._
 import io.fester.util.test.UnitSpec
 
 
+object EmailsSpec {
+  final val emails = Set(
+    Email())
+}
+
+
 class EmailsSpec extends UnitSpec {
+  import EmailsSpec._
+
+//  "" match {
+//    case "".r(m) ⇒
+//  }
 
   behavior of "email filters"
 
-  they should "xx" in {
+  they should "filter an email inbox" in {
     Given("An email inbox")
-    val emails = List(
-      Email())
+    val inbox = emails
 
     When("Using a recipient filter")
 
