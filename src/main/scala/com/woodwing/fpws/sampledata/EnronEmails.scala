@@ -1,10 +1,15 @@
 package com.woodwing.fpws.sampledata
 
-import com.woodwing.fpws.sampledata.Emails.Email
-
 object EnronEmails {
 
-  val inbox = List(
+  case class Email(
+      subject: String,
+      body: String,
+      sender: String,
+      recipient: String
+  )
+
+  final val Inbox = List(
     Email(
       sender = "arsystem@mailman.enron.com",
       recipient = "k..allen@enron.com",
@@ -62,7 +67,9 @@ jsmith@austintx.com
       body =
         """Phillip,
 
-Could you please do me a favor?  I would like  to read your current title policy to see what it says about easements.  You  should have received a copy during your closing.  I don't know how many  pages it will be but let me know how you want to handle getting a copy  made.  I'll be happy to make the copy, or whatever makes it easy for  you.
+Could you please do me a favor?  I would like  to read your current title policy to see what it says about easements.
+  You  should have received a copy during your closing.  I don't know how many  pages it will be but let me know how
+  you want to handle getting a copy  made.  I'll be happy to make the copy, or whatever makes it easy for  you.
 
 Thanks,
 
