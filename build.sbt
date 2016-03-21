@@ -1,7 +1,4 @@
-import com.typesafe.sbt.SbtScalariform._
-import de.heikoseeberger.sbtheader.license.Apache2_0
 
-import scalariform.formatter.preferences._
 
 name := "fp-workshop"
 
@@ -12,11 +9,11 @@ scalaVersion := "2.11.8"
 Keys.useJCenter := true
 
 /* auto-header configuration */
-import de.heikoseeberger.sbtheader.license.MIT
-headers := Map(
-  "scala" → MIT("2016", "woodwing.com"),
-  "sbt" → MIT("2016", "woodwing.com"),
-  "conf" → MIT("2016", "woodwing.com"))
+//import de.heikoseeberger.sbtheader.license.MIT
+//headers := Map(
+//  "scala" → MIT("2016", "woodwing.com"),
+//  "sbt" → MIT("2016", "woodwing.com"),
+//  "conf" → MIT("2016", "woodwing.com"))
 
 incOptions := incOptions.value.withNameHashing(true).withRecompileOnMacroDef(true)
 
@@ -36,6 +33,6 @@ val ScalatestVersion = "+"
 libraryDependencies ++= Seq(
 
 
-  "org.scalatest"                 %% "scalatest"                   % ScalatestVersion      % Test,
-  "org.scalatest"                 %% "scalatest-matchers"          % ScalatestVersion      % Test
+  "org.scalatest" %% "scalatest" % ScalatestVersion % Test,
+  "org.scalatest" %% "scalatest-matchers" % ScalatestVersion % Test
 )
